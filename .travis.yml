@@ -1,10 +1,19 @@
+language: python
+python:
+  - 3.8
 
 import:
   - credentials.yml
 
 jobs:
   include:
-    - stage: Unit_test
-      name: Sanity test
+    - stage: Test
+      name: Test
       script:
-        - echo "helloworld"
+        - ./test_heatbed.sh
+
+    - stage: Merge
+      name: Merge
+      script:
+        - wget https://raw.githubusercontent.com/louiscklaw/travis-playlist/master/travis-build-merger/merge_if_success.sh
+        - bash merge_if_success.sh | tee merge.log
