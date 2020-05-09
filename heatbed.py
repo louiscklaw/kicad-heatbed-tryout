@@ -4,73 +4,11 @@ import os,sys
 from pprint import pprint
 from string import Template
 
-LAYER_F_SilkS='F.SilkS'
-LAYER_F_CU='F.Cu'
-
-TRACK_THICK=1
-TRACK_SPACING=3
-INTER_TRACK_SPACING=3
-INTER_TRACK_X_START_OFFSET=1
-
-COL_LEFT_X=0
-COL_LEFT_Y=1
-COL_RIGHT_X=2
-COL_RIGHT_Y=3
-COL_LAYER=4
-COL_THICKNESS=5
-
-MOUNT_HOLE_CLEARANCE=5
-
-# bed width and height
-width=130
-height=130
-
-# define the distance between the corner point for mount hole
-corner_space = 17
-top_left_corner_space = 22
-top_right_corner_space = corner_space
-bottom_left_corner_space = corner_space
-bottom_right_corner_space = corner_space
-
-heatbed_track_space=5
-
-# the space between bed and the track
-track_bed_spacing = 5
-
-track_bed_spacing_top = 2
-track_bed_spacing_bottom = 2
-track_bed_spacing_left = 8
-track_bed_spacing_right = 2
-
-
-ramp_line_c = (height/2)+(height/2)-corner_space
-
-spacing_for_start_track=5
-ramp_line_left = ramp_line_c-spacing_for_start_track
-ramp_line_right = ramp_line_c
-
-track_start_corner_space=ramp_line_left+5
+from config import *
+from kicad_template import *
+from common import *
 
 tracks=[]
-
-heatbed_component_template = Template('''
-(module 130_130_heatbed-route (layer F.Cu) (tedit 5EB4FE57)
-  (fp_text reference REF** (at 0 21.844) (layer F.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
-  (fp_text value 130_130_heatbed-route (at 0 19.304) (layer F.Fab)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
-
-$TRACKS
-
-$HEATBED_SURROUNDING
-
-$MOUNT_HOLE
-
-$TERMINAL
-)
-'''.strip())
 
 def get_neg_x(): return -(width/2)
 def get_pos_x(): return (width/2)
@@ -336,18 +274,24 @@ planned_tracks=[
   (forth_corner, terminal_2)
 ]
 
+
+
 tracks = [get_track(planned_track[0],planned_track[1],LAYER_F_CU, TRACK_THICK) for planned_track in planned_tracks]
 
 # pprint(tracks[0:3])
+total_track_length = get_distances(planned_tracks)
 
-f_kicad_footprint_file = open("/home/logic/_workspace/kicad_workspace/kicad/kicad_library/kicad-footprints/footprint-lib.pretty/130_130_heatbed-route.kicad_mod",'w')
+f_kicad_footprint_file = open(DEST_FILE,'w')
 f_kicad_footprint_file.write(
   heatbed_component_template.substitute(
   TRACKS='\n'.join(tracks),
   HEATBED_SURROUNDING=heatbed_surrounding,
   MOUNT_HOLE='\n'.join(get_mount_holes(5)),
   TERMINAL='\n'.join(get_terminals()),
+  TOTAL_TRACK_LENGTH=print_total_track_length('TOTAL_LENGTH=%0.2fmm' % (total_track_length))
   ),
 )
 
-print("helloworld")
+print('done')
+print('-'*80)
+print('total track length %0.2fmm' % (total_track_length) )

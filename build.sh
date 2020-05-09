@@ -2,6 +2,6 @@
 
 set -ex
 
-python3 test.py
+python3 heatbed.py
 
 # done
