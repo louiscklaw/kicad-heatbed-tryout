@@ -8,7 +8,7 @@ jobs:
     - stage: Test
       name: Test
       script:
-        - ./test_heatbed.sh
+        - ./scripts/test_heatbed.sh
 
     - stage: Merge
       name: Merge
