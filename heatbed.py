@@ -7,7 +7,7 @@ from string import Template
 LAYER_F_SilkS='F.SilkS'
 LAYER_F_CU='F.Cu'
 
-TRACK_THICK=0.5
+TRACK_THICK=1
 TRACK_SPACING=3
 INTER_TRACK_SPACING=3
 INTER_TRACK_X_START_OFFSET=1
@@ -32,7 +32,7 @@ top_right_corner_space = corner_space
 bottom_left_corner_space = corner_space
 bottom_right_corner_space = corner_space
 
-
+heatbed_track_space=5
 
 # the space between bed and the track
 track_bed_spacing = 5
@@ -162,12 +162,12 @@ def lookup_right(y):
 def lookup_top_left_corner(y):
   '''y=-x+c'''
   '''y=-x+ramp_line_c'''
-  return max(get_track_left_terrorties(), -y-ramp_line_left)
+  return max(get_track_left_terrorties(), -y-(ramp_line_left))
 
 def lookup_bottom_left_corner(y):
   '''y=x+c'''
   '''y=x+ramp_line_c'''
-  return max(get_track_left_terrorties(), y-ramp_line_left)
+  return max(get_track_left_terrorties(), y-(ramp_line_left))
 
 def lookup_top_right_corner(y):
   '''y=x-c'''
@@ -225,7 +225,7 @@ def perform_scan_line():
   # sys.exit()
 
   # scan line algorithm
-  for i in frange(get_track_top_terrorties(),get_track_bottom_terrorties()):
+  for i in frange(get_track_top_terrorties(),get_track_bottom_terrorties(), heatbed_track_space):
     point_list.append((i, lookup_left(i),lookup_right(i)))
 
   return point_list
@@ -313,8 +313,6 @@ heatbed_surrounding=Template('''$HEAT_BED_OUTLINE'''.strip()
 heatbed_horizontal_tracks = add_horizontal_tracks(perform_scan_line())
 heatbed_vertical_tracks = linking_lines_together(perform_scan_line())
 heatbed_tracks = heatbed_vertical_tracks+heatbed_horizontal_tracks
-print(heatbed_tracks[0][0][1])
-# sys.exit()
 
 heatbed_starting_point=(heatbed_tracks[0][0])
 heatbed_ending_point=(heatbed_tracks[-1][0])
