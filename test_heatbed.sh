@@ -3,3 +3,5 @@
 set -ex
 
 python3 heatbed.py
+
+# done
