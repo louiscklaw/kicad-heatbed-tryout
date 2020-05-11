@@ -6,6 +6,31 @@ import math
 from pprint import pprint
 from functools import reduce
 
+from config import *
+
+def get_neg_x(): return -(width/2)
+def get_pos_x(): return (width/2)
+def get_neg_y(): return -(height/2)
+def get_pos_y(): return (height/2)
+
+def get_bed_top_left_corner(): return (get_neg_x(), get_neg_y())
+def get_bed_top_right_corner(): return (get_pos_x(), get_neg_y())
+def get_bed_bottom_left_corner(): return (get_neg_x(), get_pos_y())
+def get_bed_bottom_right_corner(): return (get_pos_x(), get_pos_y())
+def get_half_height(): return height/2
+def get_half_width(): return width/2
+
+# TERRORTIES
+def get_bed_top_terrorties(): return get_neg_y()
+def get_bed_bottom_terrorties(): return get_pos_y()
+def get_bed_left_terrorties(): return get_neg_x()
+def get_bed_right_terrorties(): return get_pos_x()
+
+def get_track_top_terrorties(): return    get_bed_top_terrorties() + track_bed_spacing_top
+def get_track_bottom_terrorties(): return get_bed_bottom_terrorties() - track_bed_spacing_bottom
+def get_track_left_terrorties(): return   get_bed_left_terrorties() + track_bed_spacing_left
+def get_track_right_terrorties(): return  get_bed_right_terrorties() - track_bed_spacing_right
+
 def square(num):
   return math.pow(num, 2)
 

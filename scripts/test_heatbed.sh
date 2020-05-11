@@ -2,6 +2,8 @@
 
 set -ex
 
-python3 test.py
+export PYTHONDONTWRITEBYTECODE=1
+
+find . | entr -c -s "python3 test.py"
 
 # done
