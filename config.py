@@ -1,8 +1,11 @@
 import os,sys
 
+
 # bed width and height
 width=130
 height=130
+
+TRACK_WIDTH=1.2
 
 # define the distance between the corner point for mount hole
 corner_space = 17
@@ -38,7 +41,7 @@ DEST_FILE = '/home/logic/_workspace/kicad_workspace/kicad/kicad_library/kicad-fo
 LAYER_F_SilkS='F.SilkS'
 LAYER_F_CU='F.Cu'
 
-TRACK_THICK=1
+
 TRACK_SPACING=3
 INTER_TRACK_SPACING=3
 INTER_TRACK_X_START_OFFSET=1

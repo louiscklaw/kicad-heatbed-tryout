@@ -216,6 +216,39 @@ def get_board_horizontal_line(startxy, endxy, layer, thickness):
   (endx,endy) = endxy
   return get_line(startx, starty, endx, endy, layer, thickness)
 
+
+def print_dimensions():
+  return [
+    'PARAMETERS:',
+    '',
+    'dimensions:%.2fmm(W),%.2fmm(H)' % (width, height),
+    'total_track_length:%.2fmm' % total_track_length,
+    'heatbed_track_space:%.2fmm' % heatbed_track_space,
+    'heatbed_track_width:%.2fmm' % heatbed_track_space,
+    'track_bed_spacing_top:%.2fmm' % track_bed_spacing_top,
+    'track_bed_spacing_bottom:%.2fmm' % track_bed_spacing_bottom,
+    'track_bed_spacing_left:%.2fmm' % track_bed_spacing_left,
+    'track_bed_spacing_right:%.2fmm' % track_bed_spacing_right,
+  ]
+
+def print_rating_at_temperature(temp_deg, track_width_mm, track_length_mm):
+  track_resistance = get_track_resistance_at_temperature(temp_deg,track_width_mm,track_length_mm)
+  power = get_power_consumption(12,track_resistance)
+  current = 12/track_resistance
+
+  return "RES@%0.2f_Deg:%0.2fOhms,POWER:%0.2fW,CURRENT:%0.2fA" % (temp_deg, track_resistance, power,current)
+
+
+def print_power_rating():
+  return [
+    'RATING:',
+    '',
+    'VOLTAGE:%.2fV' % 12,
+    print_rating_at_temperature(25, TRACK_WIDTH,total_track_length),
+    print_rating_at_temperature(110, TRACK_WIDTH,total_track_length),
+    print_rating_at_temperature(150, TRACK_WIDTH,total_track_length)
+  ]
+
 heatbed_surrounding=Template('''$HEAT_BED_OUTLINE'''.strip()
 ).substitute(
   HEAT_BED_OUTLINE='\n'.join([
@@ -255,7 +288,7 @@ planned_tracks=[
 
 # print(draw_terrorties())
 
-tracks = [get_track(planned_track[0],planned_track[1],LAYER_F_CU, TRACK_THICK) for planned_track in planned_tracks]
+tracks = [get_track(planned_track[0],planned_track[1],LAYER_F_CU, TRACK_WIDTH) for planned_track in planned_tracks]
 
 # pprint(tracks[0:3])
 total_track_length = get_distances(planned_tracks)
@@ -268,18 +301,11 @@ f_kicad_footprint_file.write(
   MOUNT_HOLE='\n'.join(get_mount_holes(5)),
   TERMINAL='\n'.join(get_terminals()),
   TERRORTIES='\n'.join(draw_terrorties()),
-  BOILERPLATE=print_boiler_plate([
-    'PARAMETERS:',
-    '',
-    'dimensions:%.2fmm(W),%.2fmm(H)' % (width, height),
-    'total_track_length:%.2fmm' % total_track_length,
-    'heatbed_track_space:%.2fmm' % heatbed_track_space,
-    'heatbed_track_space:%.2fmm' % heatbed_track_space,
-    'track_bed_spacing_top:%.2fmm' % track_bed_spacing_top,
-    'track_bed_spacing_bottom:%.2fmm' % track_bed_spacing_bottom,
-    'track_bed_spacing_left:%.2fmm' % track_bed_spacing_left,
-    'track_bed_spacing_right:%.2fmm' % track_bed_spacing_right,
-    ])
+  BOILERPLATE=print_boiler_plate(
+    print_power_rating()+['']+
+    print_dimensions()
+
+  )
   ),
 )
 
