@@ -202,14 +202,18 @@ board_bottom_left = (get_neg_x(),get_pos_y())
 board_bottom_right = (get_pos_x(),get_pos_y())
 
 # (pad 2 thru_hole roundrect (at -60.96 32.004) (size 5 10) (drill 3) (layers *.Cu *.Mask) (roundrect_rratio 0.25))
-def get_terminal(centerxy, pad_num):
+def get_terminal(centerxy, width_and_height,pad_num):
   centerx, centery = centerxy
-  return Template('(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size 5 10) (drill 3) (layers *.Cu *.Mask) (roundrect_rratio 0.25))').substitute(
-    CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num
+  width, height = width_and_height
+  return Template('(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 3) (layers *.Cu *.Mask) (roundrect_rratio 0.25))').substitute(
+    CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num,
+    WIDTH=width, HEIGHT=height
   )
 
 def get_terminals():
-  return [get_terminal((-60.96, 32.004), 1), get_terminal((-60.96, 45.212), 2)]
+  terminal_1_string=get_terminal(TERMINAL_1_CENTERXY,(5,15), 1)
+  terminal_2_string=get_terminal(TERMINAL_2_CENTERXY,(5,15), 2)
+  return [terminal_1_string,terminal_2_string ]
 
 def get_board_horizontal_line(startxy, endxy, layer, thickness):
   (startx, starty) = startxy
@@ -273,17 +277,17 @@ second_corner = (track_start_top_left_lookup_from_y(-60.96),-63)
 third_corner = (track_end_bottom_left_lookup_from_y(62), 62)
 forth_corner = (-60.96, track_end_bottom_left_lookup_from_x(-60.96))
 
-terminal_1=(-60.96, 32.004)
-terminal_2=(-60.96, 45.212)
+TERMINAL_1_CENTERXY=(-61, 18)
+TERMINAL_2_CENTERXY=(-61, 40)
 
 planned_tracks=[
-  (terminal_1,first_corner),
+  (TERMINAL_1_CENTERXY,first_corner),
   (first_corner, second_corner),
   (second_corner, heatbed_starting_point)
 ]+heatbed_tracks+[
   (heatbed_ending_point, third_corner),
   (third_corner, forth_corner),
-  (forth_corner, terminal_2)
+  (forth_corner, TERMINAL_2_CENTERXY)
 ]
 
 # print(draw_terrorties())
