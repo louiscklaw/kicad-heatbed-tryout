@@ -364,7 +364,10 @@ f_kicad_footprint_file.write(
     print_power_rating()+['']+
     print_dimensions()
   ),
-  MISC_TEXT=get_this_side_up_text()
+  MISC_TEXT=get_this_side_up_text(),
+  MISC_COMPONENTS=get_led_and_resistors(),
+  HOT_WARNING=get_hot_warnings(),
+  CAUTION_TEXT=get_caution_text()
   ),
 )
 

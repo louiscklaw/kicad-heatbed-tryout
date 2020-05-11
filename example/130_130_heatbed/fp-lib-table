@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name heatbed)(type KiCad)(uri /home/logic/_workspace/kicad-heatbed-tryout/heatbed.pretty)(options "")(descr ""))
+)

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="10160"
+   inkscape:export-xdpi="10160"
+   inkscape:export-filename="/home/mike/git/keyboard-pcbs/amoeba/dt.copper.png"
+   sodipodi:docname="hot_heat_bed.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   version="1.1"
+   id="svg3350"
+   height="11.7"
+   width="13.464567">
+  <defs
+     id="defs3352" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2"
+     inkscape:cx="-97.330555"
+     inkscape:cy="44.512707"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="747"
+     inkscape:window-x="1696"
+     inkscape:window-y="50"
+     inkscape:window-maximized="0"
+     inkscape:snap-bbox="true"
+     inkscape:snap-page="true"
+     inkscape:snap-global="true"
+     inkscape:object-paths="true" />
+  <metadata
+     id="metadata3355">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer24"
+     inkscape:label="Pretty"
+     transform="translate(-1.4586893e-6,1.189826)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer25"
+       inkscape:label="Fab" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer26"
+       inkscape:label="CrtYd" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer17"
+     inkscape:label="Legacy"
+     transform="translate(-1.4586893e-6,1.189826)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer23"
+       inkscape:label="Edge.Cuts" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer18"
+       inkscape:label="User">
+      <g
+         inkscape:groupmode="layer"
+         id="layer19"
+         inkscape:label="Eco2.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer20"
+         inkscape:label="Eco1.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer21"
+         inkscape:label="Cmts.User" />
+      <g
+         inkscape:groupmode="layer"
+         id="layer22"
+         inkscape:label="Dwgs.User" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Mask"
+     style="display:inline"
+     transform="translate(-1.4586893e-6,1.189826)">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#010000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m -179.62212,-118.26307 a 20.002,20.002 0 0 0 -19.1211,14.04297 c 0,0 -10.13102,30.880081 -20.27343,67.519531 -10.14241,36.63945953 -20.72266,77.2772 -20.72266,105.70313 0,15.848477 7.53962,29.264437 14.84375,37.910149 7.30413,8.64571 14.17718,14.94906 21.42578,26.03516 a 20.002,20.002 0 1 0 33.47656,-21.875 c -9.75139,-14.913902 -19.39007,-24.106652 -24.33593,-29.960939 -4.94587,-5.85429 -5.41016,-5.95786 -5.41016,-12.10937 0,-16.57408 9.41975,-59.4285205 19.27734,-95.03907 9.85759,-35.61054 19.72657,-65.72265 19.72657,-65.72265 a 20.002,20.002 0 0 0 -18.88672,-26.503911 z"
+       id="path4022"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#010000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:38.97399902;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 40.39741,-207.48182 a 19.488948,19.488948 0 0 0 -17.5586,10.78125 l -190,380 a 19.488948,19.488948 0 0 0 17.42188,28.20313 h 380 a 19.488948,19.488948 0 0 0 17.42188,-28.20313 l -189.999995,-380 A 19.488948,19.488948 0 0 0 40.39741,-207.48182 Z m -0.13672,63.04688 158.47656,316.95312 h -316.95312 z"
+       id="polygon4034"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#010000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 30.26069,-47.989629 a 20.002,20.002 0 0 0 -19.92188,21.81641 l 10,109.999997 a 20.002,20.002 0 0 0 39.843765,0 l 10,-109.999997 A 20.002,20.002 0 0 0 50.26069,-47.989629 Z"
+       id="polygon4036"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#010000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 40.26069,112.01037 a 20.002,20.002 0 1 0 0,40 20.002,20.002 0 1 0 0,-40 z"
+       id="line4038"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="SilkS"
+     style="display:inline"
+     transform="translate(-1.4586893e-6,1.189826)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="Paste"
+     transform="translate(-1.4586893e-6,1.189826)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Adhes"
+     style="display:inline"
+     transform="translate(-1.4586893e-6,1.189826)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Cu"
+     transform="translate(1.7716562,2.6462066)"
+     style="display:inline" />
+</svg>
