@@ -10,6 +10,7 @@
 
 ### references
 https://github.com/fmalpartida/heatbed-mini
+https://github.com/prusa3d/Heatbed_MK52_magnetic
 
 https://www.elektrisola.com/conductor-materials/copper.html
 
