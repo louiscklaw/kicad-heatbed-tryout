@@ -205,7 +205,7 @@ board_bottom_right = (get_pos_x(),get_pos_y())
 def get_terminal(centerxy, width_and_height,pad_num):
   centerx, centery = centerxy
   width, height = width_and_height
-  return Template('(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 3) (layers *.Cu *.Mask) (roundrect_rratio 0.25))').substitute(
+  return Template('(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 3) (layers *.Cu *.Mask B.Paste) (roundrect_rratio 0.25))').substitute(
     CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num,
     WIDTH=width, HEIGHT=height
   )
@@ -215,7 +215,7 @@ def get_terminal_1(centerxy, width_and_height,pad_num):
   width, height = width_and_height
   terminal_1_array_y=range(12,24+1,2)
   return Template('''
-(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 0.5) (layers *.Cu B.Mask) (roundrect_rratio 0.25))
+(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 0.5) (layers *.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
 $THRU_HOLE
 ''').substitute(
     CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num,
@@ -238,7 +238,7 @@ def spread_from_center(center=3, num_to_spread=7, interval=1):
 
 def get_terminal_thru_hole(centerxy, pad_num=1):
   centerx, centery = centerxy
-  return Template('''(pad $PAD_NUM thru_hole circle (at $CENTERX $CENTERY) (size 1.5 1.5) (drill 0.5) (layers *.Cu B.Mask))''').substitute(CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num)
+  return Template('''(pad $PAD_NUM thru_hole circle (at $CENTERX $CENTERY) (size 1.5 1.5) (drill 0.5) (layers *.Cu B.Paste B.Mask))''').substitute(CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num)
 
 def get_terminal_2(centerxy, width_and_height,pad_num):
   centerx, centery = centerxy
@@ -249,7 +249,7 @@ def get_terminal_2(centerxy, width_and_height,pad_num):
   terminal_2_array_y=range(34,46+1,2)
 
   return Template('''
-(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 0.5) (layers *.Cu B.Mask) (roundrect_rratio 0.25))
+(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 0.5) (layers *.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
 $THRU_HOLE
 ''').substitute(
     CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num,
@@ -367,7 +367,8 @@ f_kicad_footprint_file.write(
   MISC_TEXT=get_this_side_up_text(),
   MISC_COMPONENTS=get_led_and_resistors(),
   HOT_WARNING=get_hot_warnings(),
-  CAUTION_TEXT=get_caution_text()
+  CAUTION_TEXT=get_caution_text(),
+  WATERMARK=get_watermark((-55,62), 'github.com/louiscklaw/kicad-heatbed-tryout')
   ),
 )
 

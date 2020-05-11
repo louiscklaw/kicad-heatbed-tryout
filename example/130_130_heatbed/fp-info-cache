@@ -1,4 +1,4 @@
-20925144371993375
+20926733585120375
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -75240,7 +75240,7 @@ footprint-lib
 
 
 0
-50
+54
 3
 footprint-lib
 130_130_heatbed-route_WITH_LED
@@ -75248,6 +75248,13 @@ footprint-lib
 
 0
 50
+3
+footprint-lib
+130_130_heatbed-route_backup
+
+
+0
+54
 3
 footprint-lib
 9013,J3,SOT23
@@ -77623,11 +77630,11 @@ Through hole socket strip THT 2x09 2.54mm double row
 18
 18
 heatbed
-130_130
+130_130_heatbed-route
 
 
 0
-50
+54
 3
 heatbed
 hot_surcace_icon

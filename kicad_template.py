@@ -37,6 +37,8 @@ $MISC_COMPONENTS
 $HOT_WARNING
 
 $CAUTION_TEXT
+
+$WATERMARK
 )
 '''.strip())
 
@@ -108,7 +110,7 @@ def get_this_side_up_text():
   # -2.25 59.5
   return this_side_up_text_template.substitute(
     CENTERX=-55,
-    CENTERY=60,
+    CENTERY=58,
     TEXT='THIS SIDE UP'
     )
 
@@ -156,65 +158,93 @@ def get_led_and_resistors():
 
 def get_front_leds():
   return '''
-(pad 1 smd roundrect (at 63.7 43.4625 270) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
-(pad 2 smd roundrect (at 63.7 45.3375 270) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
-(pad 2 smd roundrect (at 63.6 -43.455 270) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
-(pad 1 smd roundrect (at 63.6 -45.33 270) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
-
-
-(fp_line (start 64.66 45.4) (end 64.66 42.715) (layer B.SilkS) (width 0.12))
-(fp_line (start 62.75 42.72) (end 64.65 42.72) (layer F.CrtYd) (width 0.05))
-(fp_line (start 64.65 42.72) (end 64.65 46.08) (layer F.CrtYd) (width 0.05))
-(fp_text user %R (at 63.7 44.4 270) (layer B.Fab)
+# Front left led
+(pad 1 smd roundrect (at 61.4625 44.7) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
+(pad 2 smd roundrect (at 63.3375 44.7) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
+(fp_text user %R (at 62.5 -44.7 180) (layer B.Fab)
   (effects (font (size 0.5 0.5) (thickness 0.08)))
 )
-(fp_line (start 62.74 42.715) (end 62.74 45.4) (layer B.SilkS) (width 0.12))
-(fp_line (start 64 43.4) (end 63.1 43.4) (layer B.Fab) (width 0.1))
-(fp_line (start 64.65 46.08) (end 62.75 46.08) (layer F.CrtYd) (width 0.05))
-(fp_line (start 62.75 46.08) (end 62.75 42.72) (layer F.CrtYd) (width 0.05))
-(fp_line (start 63.1 43.4) (end 63.1 45.4) (layer B.Fab) (width 0.1))
-(fp_line (start 63.1 45.4) (end 64.3 45.4) (layer B.Fab) (width 0.1))
-(fp_line (start 64.3 43.7) (end 64 43.4) (layer B.Fab) (width 0.1))
-(fp_line (start 64.3 45.4) (end 64.3 43.7) (layer B.Fab) (width 0.1))
-(fp_line (start 64.66 42.715) (end 62.74 42.715) (layer B.SilkS) (width 0.12))
-(fp_line (start 64.2 44.15) (end 63.2 44.15) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.2 44.15) (end 63.7 44.65) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.7 44.65) (end 64.2 44.15) (layer B.SilkS) (width 0.12))
-(fp_line (start 64.2 44.15) (end 64 44.2) (layer B.SilkS) (width 0.12))
-(fp_line (start 64 44.2) (end 63.4 44.2) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.4 44.2) (end 63.7 44.5) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.7 44.5) (end 64 44.3) (layer B.SilkS) (width 0.12))
-(fp_line (start 64 44.3) (end 63.6 44.3) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.6 44.3) (end 63.7 44.4) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.7 44.4) (end 63.8 44.3) (layer B.SilkS) (width 0.12))
-(fp_line (start 64.55 -46.0725) (end 64.55 -42.7125) (layer F.CrtYd) (width 0.05))
-(fp_text user %R (at 63.6 -44.3925 270) (layer B.Fab)
+(fp_line (start 62.6 -44.8) (end 62.5 -44.7) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.6 -44.4) (end 62.6 -44.8) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.4 -44.7) (end 62.6 -44.4) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.7 -45) (end 62.4 -44.7) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.7 -44.4) (end 62.7 -45) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.75 -44.2) (end 62.7 -44.4) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.25 -44.7) (end 62.75 -44.2) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.75 -45.2) (end 62.25 -44.7) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.75 -44.2) (end 62.75 -45.2) (layer B.SilkS) (width 0.12))
+(fp_line (start 64.185 -43.74) (end 64.185 -45.66) (layer B.SilkS) (width 0.12))
+(fp_line (start 61.5 -44.1) (end 63.2 -44.1) (layer B.Fab) (width 0.1))
+(fp_line (start 63.2 -44.1) (end 63.5 -44.4) (layer B.Fab) (width 0.1))
+(fp_line (start 61.5 -45.3) (end 61.5 -44.1) (layer B.Fab) (width 0.1))
+(fp_line (start 63.5 -45.3) (end 61.5 -45.3) (layer B.Fab) (width 0.1))
+(fp_line (start 60.82 -45.65) (end 64.18 -45.65) (layer F.CrtYd) (width 0.05))
+(fp_line (start 60.82 -43.75) (end 60.82 -45.65) (layer F.CrtYd) (width 0.05))
+(fp_line (start 63.5 -44.4) (end 63.5 -45.3) (layer B.Fab) (width 0.1))
+(fp_line (start 64.185 -45.66) (end 61.5 -45.66) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.5 -44.7) (end 62.6 -44.6) (layer B.SilkS) (width 0.12))
+(fp_line (start 64.18 -43.75) (end 60.82 -43.75) (layer F.CrtYd) (width 0.05))
+(fp_line (start 64.18 -45.65) (end 64.18 -43.75) (layer F.CrtYd) (width 0.05))
+(fp_line (start 61.5 -43.74) (end 64.185 -43.74) (layer B.SilkS) (width 0.12))
+
+
+# Front Right led
+(pad 2 smd roundrect (at 61.555 -44.7 180) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
+(pad 1 smd roundrect (at 63.43 -44.7 180) (size 0.975 1.4) (layers B.Cu B.Paste B.Mask) (roundrect_rratio 0.25))
+(fp_line (start 63.4 43.74) (end 60.715 43.74) (layer B.SilkS) (width 0.12))
+(fp_line (start 60.72 45.65) (end 60.72 43.75) (layer F.CrtYd) (width 0.05))
+(fp_line (start 60.72 43.75) (end 64.08 43.75) (layer F.CrtYd) (width 0.05))
+(fp_text user %R (at 62.4 44.7) (layer B.Fab)
   (effects (font (size 0.5 0.5) (thickness 0.08)))
 )
-(fp_line (start 63 -43.3925) (end 64.2 -43.3925) (layer B.Fab) (width 0.1))
-(fp_line (start 64.55 -42.7125) (end 62.65 -42.7125) (layer F.CrtYd) (width 0.05))
-(fp_line (start 64.2 -45.0925) (end 63.9 -45.3925) (layer B.Fab) (width 0.1))
-(fp_line (start 63.3 -44.5925) (end 63.6 -44.2925) (layer B.SilkS) (width 0.12))
-(fp_line (start 62.65 -46.0725) (end 64.55 -46.0725) (layer F.CrtYd) (width 0.05))
-(fp_line (start 64.1 -44.6425) (end 63.9 -44.5925) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.9 -45.3925) (end 63 -45.3925) (layer B.Fab) (width 0.1))
-(fp_line (start 63.6 -44.2925) (end 63.9 -44.4925) (layer B.SilkS) (width 0.12))
-(fp_line (start 64.56 -43.3925) (end 64.56 -46.0775) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.9 -44.5925) (end 63.3 -44.5925) (layer B.SilkS) (width 0.12))
-(fp_line (start 64.2 -43.3925) (end 64.2 -45.0925) (layer B.Fab) (width 0.1))
-(fp_line (start 62.64 -46.0775) (end 62.64 -43.3925) (layer B.SilkS) (width 0.12))
-(fp_line (start 64.56 -46.0775) (end 62.64 -46.0775) (layer B.SilkS) (width 0.12))
-(fp_line (start 63 -45.3925) (end 63 -43.3925) (layer B.Fab) (width 0.1))
-(fp_line (start 63.9 -44.4925) (end 63.5 -44.4925) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.5 -44.4925) (end 63.6 -44.3925) (layer B.SilkS) (width 0.12))
-(fp_line (start 64.1 -44.6425) (end 63.1 -44.6425) (layer B.SilkS) (width 0.12))
-(fp_line (start 62.65 -42.7125) (end 62.65 -46.0725) (layer F.CrtYd) (width 0.05))
-(fp_line (start 63.1 -44.6425) (end 63.6 -44.1425) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.6 -44.1425) (end 64.1 -44.6425) (layer B.SilkS) (width 0.12))
-(fp_line (start 63.6 -44.3925) (end 63.7 -44.4925) (layer B.SilkS) (width 0.12))
+(fp_line (start 60.715 45.66) (end 63.4 45.66) (layer B.SilkS) (width 0.12))
+(fp_line (start 61.4 44.4) (end 61.4 45.3) (layer B.Fab) (width 0.1))
+(fp_line (start 64.08 43.75) (end 64.08 45.65) (layer F.CrtYd) (width 0.05))
+(fp_line (start 64.08 45.65) (end 60.72 45.65) (layer F.CrtYd) (width 0.05))
+(fp_line (start 61.4 45.3) (end 63.4 45.3) (layer B.Fab) (width 0.1))
+(fp_line (start 63.4 45.3) (end 63.4 44.1) (layer B.Fab) (width 0.1))
+(fp_line (start 61.7 44.1) (end 61.4 44.4) (layer B.Fab) (width 0.1))
+(fp_line (start 63.4 44.1) (end 61.7 44.1) (layer B.Fab) (width 0.1))
+(fp_line (start 60.715 43.74) (end 60.715 45.66) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.15 44.2) (end 62.15 45.2) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.15 45.2) (end 62.65 44.7) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.65 44.7) (end 62.15 44.2) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.15 44.2) (end 62.2 44.4) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.2 44.4) (end 62.2 45) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.2 45) (end 62.5 44.7) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.5 44.7) (end 62.3 44.4) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.3 44.4) (end 62.3 44.8) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.3 44.8) (end 62.4 44.7) (layer B.SilkS) (width 0.12))
+(fp_line (start 62.4 44.7) (end 62.3 44.6) (layer B.SilkS) (width 0.12))
 
 
-  '''.strip()
+(fp_line (start 61.5 44.7) (end 61.6 -44.7) (layer B.Cu) (width 0.5))
+(fp_line (start 63.4 44.7) (end 63.4 -44.7) (layer B.Cu) (width 0.5))
+# (fp_line (start 62.6 45.3) (end 62 44.7) (layer B.Cu) (width 0.5))
+# (fp_line (start 62 44.7) (end 62.1 -44.2) (layer B.Cu) (width 0.5))
+# (fp_line (start 62.1 -44) (end 63.6 -45.3) (layer B.Cu) (width 0.5))
+
+# Track to front leds
+(fp_line (start 61.5 44.7) (end 61.5 46) (layer B.Cu) (width 0.5))
+(fp_line (start 61.5 46) (end 61.1 46.5) (layer B.Cu) (width 0.5))
+(fp_line (start 61.1 46.5) (end -53.1 46.5) (layer B.Cu) (width 0.5))
+(fp_line (start -53.1 46.5) (end -53.6 46) (layer B.Cu) (width 0.5))
+(fp_line (start -53.6 46) (end -53.6 24.8) (layer B.Cu) (width 0.5))
+(fp_line (start -53.6 24.8) (end -54.7 24) (layer B.Cu) (width 0.5))
+(fp_line (start -54.7 24) (end -59.5 24) (layer B.Cu) (width 0.5))
+
+(fp_line (start -55.3 46) (end -55.3 34.4) (layer B.Cu) (width 0.5))
+(fp_line (start -55.3 34.4) (end -54.6 33.6) (layer B.Cu) (width 0.5))
+(fp_line (start -54.6 33.6) (end -54.6 27.8) (layer B.Cu) (width 0.5))
+(fp_line (start -54.6 27.8) (end -55.1 27.2) (layer B.Cu) (width 0.5))
+(fp_line (start -55.1 27.2) (end -56.8 27.2) (layer B.Cu) (width 0.5))
+(fp_line (start -56.8 27.2) (end -57.4 27.9) (layer B.Cu) (width 0.5))
+(fp_line (start -57.4 27.9) (end -57.4 29.5) (layer B.Cu) (width 0.5))
+(fp_line (start 63.4 44.7) (end 63.4 46.3) (layer B.Cu) (width 0.5))
+(fp_line (start 63.4 46.3) (end 61.9 48) (layer B.Cu) (width 0.5))
+(fp_line (start 61.9 48) (end -53.4 48) (layer B.Cu) (width 0.5))
+(fp_line (start -53.4 48) (end -55.3 46) (layer B.Cu) (width 0.5))
+'''.strip()
 
 def get_caution_title(leftxy, text):
   leftx, lefty= leftxy
@@ -259,3 +289,21 @@ def get_caution_text():
 
 def get_hot_warnings():
   return '#'
+
+
+def get_watermark(leftxy, github_link):
+  leftx, lefty= leftxy
+  watermark_template=Template('''
+(fp_text user "$TEXT" (at $LEFTX $LEFTY) (layer B.SilkS)
+  (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
+)
+(fp_text user "$TEXT" (at $LEFTX $LEFTY) (layer F.SilkS)
+  (effects (font (size 1 1) (thickness 0.15)) (justify left))
+)
+  ''')
+
+  return watermark_template.substitute(
+    LEFTX=leftx,
+    LEFTY=lefty,
+    TEXT=github_link
+  ).format(leftx, lefty, github_link).strip()
