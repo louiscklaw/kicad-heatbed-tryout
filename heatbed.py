@@ -138,8 +138,8 @@ def get_line(startx, starty, endx, endy, layer, thickness):
 def perform_scan_line():
   point_list=[]
 
-  print(get_track_bottom_terrorties())
-  # sys.exit()
+  # print(get_track_bottom_terrorties())
+  # # sys.exit()
 
   # scan line algorithm
   for i in frange(get_track_top_terrorties(),get_track_bottom_terrorties(), heatbed_track_space):
@@ -210,9 +210,64 @@ def get_terminal(centerxy, width_and_height,pad_num):
     WIDTH=width, HEIGHT=height
   )
 
+def get_terminal_1(centerxy, width_and_height,pad_num):
+  centerx, centery = centerxy
+  width, height = width_and_height
+  terminal_1_array_y=range(12,24+1,2)
+  return Template('''
+(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 0.5) (layers *.Cu B.Mask) (roundrect_rratio 0.25))
+$THRU_HOLE
+''').substitute(
+    CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num,
+    WIDTH=width, HEIGHT=height,
+    THRU_HOLE='\n'.join(
+      # RIGHT TERMINAL THRU HOLE
+      [get_terminal_thru_hole((-62.5, centery),1) for centery in terminal_1_array_y]+
+      # CENTER TERMINAL THRU HOLE
+      [get_terminal_thru_hole((-61, centery),1) for centery in terminal_1_array_y]+
+      # LEFT TERMINAL THRU HOLE
+      [get_terminal_thru_hole((-59.5, centery),1) for centery in terminal_1_array_y]
+      )
+  )
+
+def spread_from_center(center=3, num_to_spread=7, interval=1):
+  # TODO: process even number in num_to_spread
+  num_to_get = (num_to_spread-1)/2
+  ruler = [i*interval for i in frange(1, num_to_get+1)]
+  return list(sorted(map(lambda x: center-x, ruler)))+[float(center)]+ list( map(lambda x: center+x, ruler))
+
+def get_terminal_thru_hole(centerxy, pad_num=1):
+  centerx, centery = centerxy
+  return Template('''(pad $PAD_NUM thru_hole circle (at $CENTERX $CENTERY) (size 1.5 1.5) (drill 0.5) (layers *.Cu B.Mask))''').substitute(CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num)
+
+def get_terminal_2(centerxy, width_and_height,pad_num):
+  centerx, centery = centerxy
+  width, height = width_and_height
+  through_hole_delta=1.25
+  # print(spread_from_center(3,7,1))
+  # sys.exit()
+  terminal_2_array_y=range(34,46+1,2)
+
+  return Template('''
+(pad $PAD_NUM thru_hole roundrect (at $CENTERX $CENTERY) (size $WIDTH $HEIGHT) (drill 0.5) (layers *.Cu B.Mask) (roundrect_rratio 0.25))
+$THRU_HOLE
+''').substitute(
+    CENTERX=centerx, CENTERY=centery, PAD_NUM=pad_num,
+    WIDTH=width, HEIGHT=height,
+    THRU_HOLE='\n'.join(
+      # RIGHT TERMINAL THRU HOLE
+      [get_terminal_thru_hole((-62.5, centery),2) for centery in terminal_2_array_y]+
+      # CENTER TERMINAL THRU HOLE
+      [get_terminal_thru_hole((-61, centery),2) for centery in terminal_2_array_y]+
+      # LEFT TERMINAL THRU HOLE
+      [get_terminal_thru_hole((-59.5, centery),2) for centery in terminal_2_array_y]
+      )
+  )
+
+
 def get_terminals():
-  terminal_1_string=get_terminal(TERMINAL_1_CENTERXY,(5,15), 1)
-  terminal_2_string=get_terminal(TERMINAL_2_CENTERXY,(5,15), 2)
+  terminal_1_string=get_terminal_1(TERMINAL_1_CENTERXY,(5,15), 1)
+  terminal_2_string=get_terminal_2(TERMINAL_2_CENTERXY,(5,15), 2)
   return [terminal_1_string,terminal_2_string ]
 
 def get_board_horizontal_line(startxy, endxy, layer, thickness):
@@ -308,8 +363,8 @@ f_kicad_footprint_file.write(
   BOILERPLATE=print_boiler_plate(
     print_power_rating()+['']+
     print_dimensions()
-
-  )
+  ),
+  MISC_TEXT=get_this_side_up_text()
   ),
 )
 

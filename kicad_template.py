@@ -4,6 +4,11 @@ from string import Template
 from common import *
 from config import *
 
+this_side_up_text_template = Template('''
+(fp_text user "$TEXT" (at -2.25 59.5) (layer F.SilkS)
+(effects (font (size 3 3) (thickness 0.3)) (justify right)))
+'''.strip())
+
 heatbed_component_template = Template('''
 (module 130_130_heatbed-route (layer F.Cu) (tedit 5EB4FE57)
   (fp_text reference REF** (at 0 21.844) (layer F.SilkS)
@@ -25,6 +30,7 @@ $BOILERPLATE
 
 $TERRORTIES
 
+$MISC_TEXT
 )
 '''.strip())
 
@@ -35,15 +41,9 @@ TOTAL_LENGTH=Template('''
 '''.strip())
 
 def print_total_track_length(length):
-  return TOTAL_LENGTH.substitute(
-    LENGTH=length
-  )
+  return TOTAL_LENGTH.substitute(LENGTH=length)
 
-__BOILERPLATE=Template('''
-(fp_text user "$TEXT" (at $X_POS $Y_POS) (layer F.SilkS)
-  (effects (font (size 1 1) (thickness 0.15))(justify left))
-)
-'''.strip())
+__BOILERPLATE=Template('''(fp_text user "$TEXT" (at $X_POS $Y_POS) (layer F.SilkS)(effects (font (size 1 1) (thickness 0.15))(justify left)))'''.strip())
 
 def print_boiler_plate(in_texts):
   output = []
@@ -97,3 +97,10 @@ def draw_terrorties():
     get_right_territory(),
     get_bottom_territory()
     ]
+
+def get_this_side_up_text():
+  return this_side_up_text_template.substitute(
+    CENTERX=-3,
+    CENTERY=50,
+    TEXT='THIS SIDE UP'
+    )
