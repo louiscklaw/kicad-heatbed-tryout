@@ -16,10 +16,12 @@ heatbed_track_space=5
 # the space between bed and the track
 track_bed_spacing = 5
 
+# territory
 track_bed_spacing_top = 2
 track_bed_spacing_bottom = 2
 track_bed_spacing_left = 8
 track_bed_spacing_right = 2
+
 
 
 ramp_line_c = (height/2)+(height/2)-corner_space

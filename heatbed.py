@@ -11,28 +11,6 @@ from common import *
 
 tracks=[]
 
-def get_neg_x(): return -(width/2)
-def get_pos_x(): return (width/2)
-def get_neg_y(): return -(height/2)
-def get_pos_y(): return (height/2)
-
-def get_bed_top_left_corner(): return (get_neg_x(), get_neg_y())
-def get_bed_top_right_corner(): return (get_pos_x(), get_neg_y())
-def get_bed_bottom_left_corner(): return (get_neg_x(), get_pos_y())
-def get_bed_bottom_right_corner(): return (get_pos_x(), get_pos_y())
-def get_half_height(): return height/2
-def get_half_width(): return width/2
-
-def get_bed_top_terrorties(): return get_neg_y()
-def get_bed_bottom_terrorties(): return get_pos_y()
-def get_bed_left_terrorties(): return get_neg_x()
-def get_bed_right_terrorties(): return get_pos_x()
-
-def get_track_top_terrorties(): return    get_bed_top_terrorties() + track_bed_spacing_top
-def get_track_bottom_terrorties(): return get_bed_bottom_terrorties() - track_bed_spacing_bottom
-def get_track_left_terrorties(): return   get_bed_left_terrorties() + track_bed_spacing_left
-def get_track_right_terrorties(): return  get_bed_right_terrorties() - track_bed_spacing_right
-
 
 top_left_mount_start = get_bed_top_left_corner()[1]+top_left_corner_space
 bottom_left_mount_start = get_bed_bottom_left_corner()[1]-bottom_left_corner_space
@@ -275,7 +253,7 @@ planned_tracks=[
   (forth_corner, terminal_2)
 ]
 
-
+# print(draw_terrorties())
 
 tracks = [get_track(planned_track[0],planned_track[1],LAYER_F_CU, TRACK_THICK) for planned_track in planned_tracks]
 
@@ -289,7 +267,19 @@ f_kicad_footprint_file.write(
   HEATBED_SURROUNDING=heatbed_surrounding,
   MOUNT_HOLE='\n'.join(get_mount_holes(5)),
   TERMINAL='\n'.join(get_terminals()),
-  TOTAL_TRACK_LENGTH=print_total_track_length('TOTAL_LENGTH=%0.2fmm' % (total_track_length))
+  TERRORTIES='\n'.join(draw_terrorties()),
+  BOILERPLATE=print_boiler_plate([
+    'PARAMETERS:',
+    '',
+    'dimensions:%.2fmm(W),%.2fmm(H)' % (width, height),
+    'total_track_length:%.2fmm' % total_track_length,
+    'heatbed_track_space:%.2fmm' % heatbed_track_space,
+    'heatbed_track_space:%.2fmm' % heatbed_track_space,
+    'track_bed_spacing_top:%.2fmm' % track_bed_spacing_top,
+    'track_bed_spacing_bottom:%.2fmm' % track_bed_spacing_bottom,
+    'track_bed_spacing_left:%.2fmm' % track_bed_spacing_left,
+    'track_bed_spacing_right:%.2fmm' % track_bed_spacing_right,
+    ])
   ),
 )
 
