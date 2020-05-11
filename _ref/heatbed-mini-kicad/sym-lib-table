@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name heatedBed-eagle-import)(type Legacy)(uri ${KIPRJMOD}/heatedBed-eagle-import.lib)(options "")(descr ""))
+)

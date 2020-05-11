@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name heatedBed)(type KiCad)(uri "$(KIPRJMOD)/heatedBed.pretty")(options "")(descr ""))
+)
