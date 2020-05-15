@@ -3,15 +3,15 @@ os: linux
 import:
   - credentials.yml
 
-jobs:
-  include:
-    - stage: Test
-      name: Test
-      script:
-        - ./scripts/test_heatbed.sh
+script:
+  - export
+  - hostname
+  - ./build.sh
 
-    - stage: Merge
-      name: Merge
-      script:
-        - wget https://raw.githubusercontent.com/louiscklaw/travis-playlist/master/travis-build-merger/merge_if_success.sh
-        - bash merge_if_success.sh | tee merge.log
+import:
+  - credentials.yml
+  - .travis-merger.yml
+
+stages:
+  - Build
+  - Merge
