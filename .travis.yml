@@ -2,6 +2,8 @@ os: linux
 
 import:
   - credentials.yml
+  - ./.travis-merger.yml
+  - ./.travis-stages.yml
 
 jobs:
   include:
@@ -9,9 +11,3 @@ jobs:
       name: Test
       script:
         - ./scripts/test_heatbed.sh
-
-    - stage: Merge
-      name: Merge
-      script:
-        - wget https://raw.githubusercontent.com/louiscklaw/travis-playlist/master/travis-build-merger/merge_if_success.sh
-        - bash merge_if_success.sh | tee merge.log
