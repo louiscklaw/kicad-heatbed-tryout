@@ -27,9 +27,8 @@ def test_get_bottom_territory():
   assert ''!=result, 'get test_get_bottom_territory failed'
 
 def test_get_caution_description():
-  result=kicad_template.get_caution_description(10)
-  print(result)
-  assert ''==result, 'get test_get_caution_description failed'
+  result=kicad_template.get_caution_description((10,10), 'test caution')
+  assert ''!=result, 'get test_get_caution_description failed'
 
 def test_get_caution_text():
   result=kicad_template.get_caution_text(10)
@@ -101,7 +100,7 @@ def test():
 
   test_draw_terrorties()
   test_get_bottom_territory()
-  # test_get_caution_description()
+  test_get_caution_description()
   # test_get_caution_text()
   # test_get_caution_title()
   # test_get_front_leds()
