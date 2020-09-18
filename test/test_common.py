@@ -66,7 +66,8 @@ def test_get_pos_y():
   assert 10==common.get_pos_y(20)
 
 def test_get_power_consumption():
-  pass
+  result=common.get_power_consumption(12, 100)
+  assert 1.44==result,'get get_power_consumption failed'
 
 def test_get_resistance_at_temperature():
   result=common.get_resistance_at_temperature(30)
@@ -96,7 +97,9 @@ def test_get_track_csa():
   assert 0.105==result, 'get get_track_csa failed'
 
 def test_get_track_resistance_at_temperature():
-  pass
+  result=common.get_track_resistance_at_temperature(30, 5, 10)
+  result =round(result, 10)
+  assert 0.0009961971 == result,'get get_track_resistance_at_temperature failed'
 
 def test_helloworld():
   pass
@@ -137,3 +140,5 @@ def test():
 
   test_get_resistance_at_temperature()
   test_get_track_csa()
+  test_get_track_resistance_at_temperature()
+  test_get_power_consumption()
