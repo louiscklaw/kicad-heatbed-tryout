@@ -59,8 +59,8 @@ def test_get_right_territory():
   assert ''!=result, 'get test_get_right_territory failed'
 
 def test_get_territory():
-  result=kicad_template.get_territory(10, 10)
-  assert ''==result, 'get test_get_territory failed'
+  result=kicad_template.get_territory((0,0),(10,10))
+  assert ''!=result, 'get test_get_territory failed'
 
 def test_get_this_side_up_text():
   result=kicad_template.get_this_side_up_text(10)
@@ -100,7 +100,7 @@ def test():
   test_get_led_and_resistors()
   test_get_left_territory()
   test_get_right_territory()
-  # test_get_territory()
+  test_get_territory()
   # test_get_this_side_up_text()
   # test_get_top_territory()
   # test_get_watermark()
