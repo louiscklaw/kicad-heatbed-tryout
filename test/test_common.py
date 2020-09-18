@@ -70,21 +70,25 @@ def test_get_resistance_at_temperature():
   pass
 
 def test_get_track_bottom_terrorties():
-  pass
+  result=common.get_track_bottom_terrorties(20)
+  assert 5==result,'get get_track_bottom_terrorties failed'
+
+def test_get_track_left_terrorties():
+  result=common.get_track_left_terrorties(20)
+  assert -5==result,'get get_track_left_terrorties failed'
+
+def test_get_track_right_terrorties():
+  result=common.get_track_right_terrorties(20)
+  assert 5==result,'get get_track_right_terrorties failed'
+
+def test_get_track_top_terrorties():
+  result=common.get_track_top_terrorties(20)
+  assert -5==result,'get get_track_top_terrorties failed'
 
 def test_get_track_csa():
   pass
 
-def test_get_track_left_terrorties():
-  pass
-
 def test_get_track_resistance_at_temperature():
-  pass
-
-def test_get_track_right_terrorties():
-  pass
-
-def test_get_track_top_terrorties():
   pass
 
 def test_helloworld():
@@ -111,3 +115,8 @@ def test():
   test_get_bed_left_terrorties()
   test_get_bed_right_terrorties()
   test_get_bed_top_terrorties()
+
+  test_get_track_bottom_terrorties()
+  test_get_track_left_terrorties()
+  test_get_track_right_terrorties()
+  test_get_track_top_terrorties()
