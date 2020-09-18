@@ -4,10 +4,20 @@ from pprint import pprint
 import common
 
 def test_get_bed_bottom_left_corner():
-  pass
+  result=common.get_bed_bottom_left_corner(20,20)
+  assert (-10,10)==result, 'get get_bed_bottom_left_corner failed'
 
 def test_get_bed_bottom_right_corner():
-  pass
+  result=common.get_bed_bottom_right_corner(20,20)
+  assert (10,10)==result, 'get get_bed_bottom_right_corner failed'
+
+def test_get_bed_top_left_corner():
+  result=common.get_bed_top_left_corner(20,20)
+  assert (-10,-10)==result, 'get get_bed_top_left_corner failed'
+
+def test_get_bed_top_right_corner():
+  result=common.get_bed_top_right_corner(20,20)
+  assert (10,-10)==result, 'get get_bed_top_right_corner failed'
 
 def test_get_bed_bottom_terrorties():
   pass
@@ -16,12 +26,6 @@ def test_get_bed_left_terrorties():
   pass
 
 def test_get_bed_right_terrorties():
-  pass
-
-def test_get_bed_top_left_corner():
-  pass
-
-def test_get_bed_top_right_corner():
   pass
 
 def test_get_bed_top_terrorties():
@@ -94,3 +98,7 @@ def test():
   test_get_neg_y()
   test_get_pos_x()
   test_get_pos_y()
+  test_get_bed_bottom_left_corner()
+  test_get_bed_bottom_right_corner()
+  test_get_bed_top_left_corner()
+  test_get_bed_top_right_corner()
