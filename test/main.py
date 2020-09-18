@@ -21,7 +21,7 @@ import kicad_template
 import test_kicad_template
 
 def test_kicad_template_helloworld():
-  kicad_template.helloworld()
+  test_kicad_template.test()
 
 def test_config_helloworld():
   test_config.test()
