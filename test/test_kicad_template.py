@@ -63,14 +63,13 @@ def test_get_territory():
   assert ''!=result, 'get test_get_territory failed'
 
 def test_get_this_side_up_text():
-  result=kicad_template.get_this_side_up_text(10)
-  print(result)
-  assert ''==result, 'get test_get_this_side_up_text failed'
+  result=kicad_template.get_this_side_up_text()
+  assert ''!=result, 'get test_get_this_side_up_text failed'
 
 def test_get_top_territory():
-  result=kicad_template.get_top_territory(10)
+  result=kicad_template.get_top_territory(10,10)
   print(result)
-  assert ''==result, 'get test_get_top_territory failed'
+  assert ''!=result, 'get test_get_top_territory failed'
 
 def test_get_watermark():
   result=kicad_template.get_watermark(10)
@@ -101,7 +100,7 @@ def test():
   test_get_left_territory()
   test_get_right_territory()
   test_get_territory()
-  # test_get_this_side_up_text()
-  # test_get_top_territory()
+  test_get_this_side_up_text()
+  test_get_top_territory()
   # test_get_watermark()
   # test_print_boiler_plate()
