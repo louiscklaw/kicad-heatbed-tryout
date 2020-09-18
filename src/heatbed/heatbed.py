@@ -10,5 +10,5 @@ sys.path.append(SRC_DIR)
 
 from check_y_inside import *
 
-def check_y_inside(y, in_min, in_max):
-  return y >= in_min and y <= in_max
+def helloworld():
+  print('helloworld from {}'.format(__file__))
