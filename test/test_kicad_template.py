@@ -24,8 +24,7 @@ def test_draw_terrorties():
 
 def test_get_bottom_territory():
   result=kicad_template.get_bottom_territory(10, 10)
-  print(result)
-  assert ''==result, 'get test_get_bottom_territory failed'
+  assert ''!=result, 'get test_get_bottom_territory failed'
 
 def test_get_caution_description():
   result=kicad_template.get_caution_description(10)
@@ -101,7 +100,7 @@ def test():
   test_print_total_track_length()
 
   test_draw_terrorties()
-  # test_get_bottom_territory()
+  test_get_bottom_territory()
   # test_get_caution_description()
   # test_get_caution_text()
   # test_get_caution_title()
