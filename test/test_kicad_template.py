@@ -35,9 +35,8 @@ def test_get_caution_text():
   assert ''!=result, 'get test_get_caution_text failed'
 
 def test_get_caution_title():
-  result=kicad_template.get_caution_title(10)
-  print(result)
-  assert ''==result, 'get test_get_caution_title failed'
+  result=kicad_template.get_caution_title((10,10), 'test helloworld')
+  assert ''!=result, 'get test_get_caution_title failed'
 
 def test_get_front_leds():
   result=kicad_template.get_front_leds(10)
@@ -101,7 +100,7 @@ def test():
   test_get_bottom_territory()
   test_get_caution_description()
   test_get_caution_text()
-  # test_get_caution_title()
+  test_get_caution_title()
   # test_get_front_leds()
   # test_get_hot_warnings()
   # test_get_led_and_resistors()
