@@ -45,9 +45,8 @@ def test_check_y_inside():
 
 
 def test_frange():
-  result = frange(10)
-  print(result)
-  assert ''==result,'get frange failed'
+  result = frange(1, 5, 1)
+  assert [float(1),float(2),float(3),float(4)]==list(result),'get frange failed'
 
 def test_get_board_horizontal_line():
   result = get_board_horizontal_line(10)
@@ -200,7 +199,7 @@ def test():
   # test_check_y_inside_bottom_right_mount_area()
   # test_check_y_inside_top_left_mount_area()
   # test_check_y_inside_top_right_mount_area()
-  # test_frange()
+  test_frange()
   # test_get_board_horizontal_line()
   # test_get_line()
   # test_get_mount_hole()
