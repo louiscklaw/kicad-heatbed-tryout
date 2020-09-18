@@ -6,5 +6,5 @@ SRC_DIR=os.path.abspath(SRC_HEATBED+'/..')
 
 sys.path.append(SRC_DIR)
 
-def helloworld():
-  print('helloworld')
+def is_even(y):
+  return y % 2

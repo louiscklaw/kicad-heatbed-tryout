@@ -6,5 +6,5 @@ SRC_DIR=os.path.abspath(SRC_HEATBED+'/..')
 
 sys.path.append(SRC_DIR)
 
-def helloworld():
-  print('helloworld')
+def get_line(startx, starty, endx, endy, layer, thickness):
+  return get_track((startx, starty), (endx, endy), layer, thickness)

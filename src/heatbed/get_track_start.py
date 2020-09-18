@@ -6,5 +6,6 @@ SRC_DIR=os.path.abspath(SRC_HEATBED+'/..')
 
 sys.path.append(SRC_DIR)
 
-def helloworld():
-  print('helloworld')
+def get_track_start():
+  # terminal to the heatbed start
+  return

@@ -6,5 +6,6 @@ SRC_DIR=os.path.abspath(SRC_HEATBED+'/..')
 
 sys.path.append(SRC_DIR)
 
-def helloworld():
-  print('helloworld')
+def track_start_top_left_lookup_from_x(x):
+  '''y=mx+c'''
+  return -(x+ track_start_corner_space)

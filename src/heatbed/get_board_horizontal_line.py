@@ -6,5 +6,7 @@ SRC_DIR=os.path.abspath(SRC_HEATBED+'/..')
 
 sys.path.append(SRC_DIR)
 
-def helloworld():
-  print('helloworld')
+def get_board_horizontal_line(startxy, endxy, layer, thickness):
+  (startx, starty) = startxy
+  (endx,endy) = endxy
+  return get_line(startx, starty, endx, endy, layer, thickness)

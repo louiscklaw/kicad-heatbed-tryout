@@ -17,22 +17,6 @@ bottom_left_mount_start = get_bed_bottom_left_corner()[1]-bottom_left_corner_spa
 top_right_mount_start = get_bed_top_right_corner()[1]+top_right_corner_space
 bottom_right_mount_start = get_bed_bottom_right_corner()[1]-bottom_right_corner_space
 
-
-def check_y_inside(y, in_min, in_max):
-  return y >= in_min and y <= in_max
-
-def check_y_inside_top_left_mount_area(y):
-  return check_y_inside(y, get_bed_top_terrorties(),top_left_mount_start)
-
-def check_y_inside_bottom_left_mount_area(y):
-  return check_y_inside(y, bottom_left_mount_start, get_bed_bottom_terrorties())
-
-def check_y_inside_top_right_mount_area(y):
-  return check_y_inside(y, get_bed_top_terrorties(),top_right_mount_start)
-
-def check_y_inside_bottom_right_mount_area(y):
-  return check_y_inside(y, bottom_right_mount_start, get_bed_bottom_terrorties())
-
 def lookup_left(y):
   if check_y_inside(y, top_left_mount_start,bottom_left_mount_start):
     return get_track_left_terrorties()
