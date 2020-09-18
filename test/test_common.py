@@ -20,16 +20,20 @@ def test_get_bed_top_right_corner():
   assert (10,-10)==result, 'get get_bed_top_right_corner failed'
 
 def test_get_bed_bottom_terrorties():
-  pass
+  result=common.get_bed_bottom_terrorties(10)
+  assert 5==result, 'get get_bed_bottom_terrorties failed'
 
 def test_get_bed_left_terrorties():
-  pass
+  result=common.get_bed_left_terrorties(10)
+  assert -5==result, 'get get_bed_left_terrorties failed'
 
 def test_get_bed_right_terrorties():
-  pass
+  result=common.get_bed_right_terrorties(10)
+  assert 5==result, 'get get_bed_right_terrorties failed'
 
 def test_get_bed_top_terrorties():
-  pass
+  result=common.get_bed_top_terrorties(10)
+  assert -5==result, 'get get_bed_top_terrorties failed'
 
 def test_get_distance():
   pass
@@ -102,3 +106,8 @@ def test():
   test_get_bed_bottom_right_corner()
   test_get_bed_top_left_corner()
   test_get_bed_top_right_corner()
+
+  test_get_bed_bottom_terrorties()
+  test_get_bed_left_terrorties()
+  test_get_bed_right_terrorties()
+  test_get_bed_top_terrorties()
