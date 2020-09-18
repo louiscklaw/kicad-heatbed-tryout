@@ -40,7 +40,8 @@ def test_get_distance():
   assert 5==result,'get get_distance failed'
 
 def test_get_distances():
-  pass
+  result = common.get_distances([[(0,0),(3,4)],[(0,0),(3,4)],[(0,0),(3,4)]])
+  assert 15==result,'get get_distances failed'
 
 def test_get_half_height():
   pass
@@ -127,3 +128,4 @@ def test():
   test_square()
   test_square_root()
   test_get_distance()
+  test_get_distances()
