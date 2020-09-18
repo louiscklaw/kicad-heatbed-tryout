@@ -6,5 +6,5 @@ SRC_DIR=os.path.abspath(SRC_HEATBED+'/..')
 
 sys.path.append(SRC_DIR)
 
-def helloworld():
-  print('helloworld')
+def check_y_inside(y, in_min, in_max):
+  return y >= in_min and y <= in_max
