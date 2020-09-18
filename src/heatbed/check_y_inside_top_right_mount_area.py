@@ -6,5 +6,11 @@ SRC_DIR=os.path.abspath(SRC_HEATBED+'/..')
 
 sys.path.append(SRC_DIR)
 
-def helloworld():
-  print('helloworld')
+from check_y_inside import *
+from common import *
+
+from config import *
+
+def check_y_inside_top_right_mount_area(y, width, height):
+  top_right_mount_start = get_bed_top_right_corner(width, height)[1]+top_right_corner_space
+  return check_y_inside(y, get_bed_top_terrorties(height),top_right_mount_start)
