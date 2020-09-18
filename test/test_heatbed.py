@@ -17,9 +17,9 @@ def test_add_horizontal_tracks():
   assert ''==result,'get add_horizontal_tracks failed'
 
 def test_check_y_inside_bottom_left_mount_area():
-  result = check_y_inside_bottom_left_mount_area(10)
-  print(result)
-  assert ''==result,'get check_y_inside_bottom_left_mount_area failed'
+  result = check_y_inside_bottom_left_mount_area(5,10, 10)
+  # TODO: fill usecase here
+  assert True==result,'get check_y_inside_bottom_left_mount_area failed'
 
 def test_check_y_inside_bottom_right_mount_area():
   result = check_y_inside_bottom_right_mount_area(10)
@@ -42,7 +42,6 @@ def test_check_y_inside():
 
   result = check_y_inside(0,5,10)
   assert False==result,'get check_y_inside failed'
-
 
 def test_frange():
   result = frange(1, 5, 1)
@@ -195,11 +194,10 @@ def test():
   test_check_y_inside()
 
   # test_add_horizontal_tracks()
-  # test_check_y_inside_bottom_left_mount_area()
+  test_check_y_inside_bottom_left_mount_area()
   # test_check_y_inside_bottom_right_mount_area()
   # test_check_y_inside_top_left_mount_area()
   # test_check_y_inside_top_right_mount_area()
-  test_frange()
   # test_get_board_horizontal_line()
   # test_get_line()
   # test_get_mount_hole()
@@ -228,3 +226,4 @@ def test():
   # test_track_end_bottom_left_lookup_from_y()
   # test_track_start_top_left_lookup_from_x()
   # test_track_start_top_left_lookup_from_y()
+  test_frange()
