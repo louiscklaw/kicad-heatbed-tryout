@@ -47,6 +47,7 @@ def get_resistance_at_temperature(in_temperature):
   return 0.0171*(1+0.0039*(in_temperature-25))
 
 def get_heatbed_power(length, width):
+  # TODO: implement me
   return
 
 def get_track_csa(width):

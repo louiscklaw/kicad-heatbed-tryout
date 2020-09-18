@@ -91,7 +91,9 @@ def test_get_track_top_terrorties():
   assert -5==result,'get get_track_top_terrorties failed'
 
 def test_get_track_csa():
-  pass
+  result=common.get_track_csa(3)
+  result = round(result, 5)
+  assert 0.105==result, 'get get_track_csa failed'
 
 def test_get_track_resistance_at_temperature():
   pass
@@ -134,3 +136,4 @@ def test():
   test_get_distances()
 
   test_get_resistance_at_temperature()
+  test_get_track_csa()
