@@ -48,22 +48,18 @@ def test_get_hot_warnings():
 
 def test_get_led_and_resistors():
   result=kicad_template.get_led_and_resistors()
-  print(result)
   assert ''!=result, 'get test_get_led_and_resistors failed'
 
 def test_get_left_territory():
-  result=kicad_template.get_left_territory(10)
-  print(result)
-  assert ''==result, 'get test_get_left_territory failed'
+  result=kicad_template.get_left_territory(10, 10)
+  assert ''!=result, 'get test_get_left_territory failed'
 
 def test_get_right_territory():
-  result=kicad_template.get_right_territory(10)
-  print(result)
-  assert ''==result, 'get test_get_right_territory failed'
+  result=kicad_template.get_right_territory(10, 10)
+  assert ''!=result, 'get test_get_right_territory failed'
 
 def test_get_territory():
-  result=kicad_template.get_territory(10)
-  print(result)
+  result=kicad_template.get_territory(10, 10)
   assert ''==result, 'get test_get_territory failed'
 
 def test_get_this_side_up_text():
@@ -102,8 +98,8 @@ def test():
   test_get_front_leds()
   test_get_hot_warnings()
   test_get_led_and_resistors()
-  # test_get_left_territory()
-  # test_get_right_territory()
+  test_get_left_territory()
+  test_get_right_territory()
   # test_get_territory()
   # test_get_this_side_up_text()
   # test_get_top_territory()
