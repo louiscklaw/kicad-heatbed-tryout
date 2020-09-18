@@ -95,10 +95,12 @@ def test_helloworld():
   pass
 
 def test_square_root():
-  pass
+  result=common.square_root(25)
+  assert 5 == result, 'get square_root failed'
 
 def test_square():
-  pass
+  result=common.square(5)
+  assert 25 == result, 'get square failed'
 
 
 def test():
@@ -120,3 +122,6 @@ def test():
   test_get_track_left_terrorties()
   test_get_track_right_terrorties()
   test_get_track_top_terrorties()
+
+  test_square()
+  test_square_root()
