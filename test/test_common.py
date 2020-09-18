@@ -113,7 +113,10 @@ def test_square():
   assert 25 == result, 'get square failed'
 
 
+
 def test():
+  common.helloworld()
+
   test_get_neg_x()
   test_get_neg_y()
   test_get_pos_x()
