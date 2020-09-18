@@ -1,6 +1,6 @@
 import os,sys
 from pprint import pprint
-
+import math
 import common
 
 def test_get_bed_bottom_left_corner():
@@ -69,7 +69,10 @@ def test_get_power_consumption():
   pass
 
 def test_get_resistance_at_temperature():
-  pass
+  result=common.get_resistance_at_temperature(30)
+  result=round(result, 5)
+  assert 0.01743 == result, 'get get-resistance_at_temperature failed'
+
 
 def test_get_track_bottom_terrorties():
   result=common.get_track_bottom_terrorties(20)
@@ -129,3 +132,5 @@ def test():
   test_square_root()
   test_get_distance()
   test_get_distances()
+
+  test_get_resistance_at_temperature()
