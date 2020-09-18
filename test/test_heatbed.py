@@ -22,9 +22,8 @@ def test_check_y_inside_bottom_left_mount_area():
   assert True==result,'get check_y_inside_bottom_left_mount_area failed'
 
 def test_check_y_inside_bottom_right_mount_area():
-  result = check_y_inside_bottom_right_mount_area(10)
-  print(result)
-  assert ''==result,'get check_y_inside_bottom_right_mount_area failed'
+  result = check_y_inside_bottom_right_mount_area(5,10,10)
+  assert True==result,'get check_y_inside_bottom_right_mount_area failed'
 
 def test_check_y_inside_top_left_mount_area():
   result = check_y_inside_top_left_mount_area(10)
@@ -195,7 +194,7 @@ def test():
 
   # test_add_horizontal_tracks()
   test_check_y_inside_bottom_left_mount_area()
-  # test_check_y_inside_bottom_right_mount_area()
+  test_check_y_inside_bottom_right_mount_area()
   # test_check_y_inside_top_left_mount_area()
   # test_check_y_inside_top_right_mount_area()
   # test_get_board_horizontal_line()
