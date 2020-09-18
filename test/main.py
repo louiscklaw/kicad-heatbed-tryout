@@ -16,11 +16,18 @@ import test_common
 
 import config
 
+import kicad_template
+import test_kicad_template
+
+def test_kicad_template_helloworld():
+  kicad_template.helloworld()
+
 def test_config_helloworld():
   config.helloworld()
 
 def test_common_helloworld():
   common.helloworld()
+  test_common.test()
 
 def test_helloworld():
   print('helloworld')
@@ -29,8 +36,9 @@ def test():
   test_helloworld()
   test_common_helloworld()
   test_config_helloworld()
+  test_kicad_template_helloworld()
 
-  test_common.test()
+
 
 if __name__=="__main__":
   test()
