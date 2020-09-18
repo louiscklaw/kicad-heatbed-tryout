@@ -36,7 +36,8 @@ def test_get_bed_top_terrorties():
   assert -5==result, 'get get_bed_top_terrorties failed'
 
 def test_get_distance():
-  pass
+  result = common.get_distance((0,0),(3,4))
+  assert 5==result,'get get_distance failed'
 
 def test_get_distances():
   pass
@@ -125,3 +126,4 @@ def test():
 
   test_square()
   test_square_root()
+  test_get_distance()
