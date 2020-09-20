@@ -12,4 +12,8 @@ TRIGGERING_BRANCH=GITHUB_REF.replace('refs/heads/','')
 GITHUB_REPO = os.environ['GITHUB_REPOSITORY']
 GITHUB_TOKEN = os.environ['MY_GITHUB_TOKEN']
 
+if len(GITHUB_TOKEN) ==0:
+  print(chalk.red('GITHUB_TOKEN is missing'))
+  sys.exit(-1)
+
 PUSH_URI="https://{}@github.com/{}".format(GITHUB_TOKEN, GITHUB_REPO)
